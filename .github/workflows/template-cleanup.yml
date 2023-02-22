@@ -13,6 +13,10 @@ on:
 jobs:
   cleanup:
     runs-on: ubuntu-latest
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
     if: github.event.repository.name != 'browser-extension-template'
     steps:
       - uses: actions/checkout@v2
